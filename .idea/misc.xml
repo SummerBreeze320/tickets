@@ -8,11 +8,15 @@
         <option value="$PROJECT_DIR$/tickets-common/pom.xml" />
         <option value="$PROJECT_DIR$/tickets-service/pom.xml" />
         <option value="$PROJECT_DIR$/tickets-service/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/tickets-framework/tickets-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/tikets-common/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/tickets-common/pom.xml" />
+        <option value="$PROJECT_DIR$/ticktes-common/pom.xml" />
+        <option value="$PROJECT_DIR$/tikets-common/pom.xml" />
       </set>
     </option>
   </component>

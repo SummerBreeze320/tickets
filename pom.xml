@@ -32,7 +32,8 @@
 
 	<modules>
 		<module>tickets-service</module>
-		<module>ticktes-common</module>
+		<module>tickets-common</module>
+		<module>tickets-framework</module>
 	</modules>
 
 	<properties>
