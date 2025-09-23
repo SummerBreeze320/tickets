@@ -32,7 +32,7 @@
 
 	<modules>
 		<module>tickets-service</module>
-		<module>tickets-common</module>
+		<module>tickets-commons</module>
 		<module>tickets-framework</module>
 	</modules>
 
