@@ -33,7 +33,7 @@
 	<modules>
 		<module>tickets-service</module>
 		<module>tickets-commons</module>
-		<module>tickets-framework</module>
+		<module>tickets-frameworks</module>
 	</modules>
 
 	<properties>
@@ -54,7 +54,7 @@
 		<maven-resources.version>3.2.0</maven-resources.version>
 		<maven-source.version>3.2.1</maven-source.version>
 		<flatten-maven.version>1.4.1</flatten-maven.version>
-		<fastjson.version>2.0.9</fastjson.version>
+		<fastjson2.version>2.0.36</fastjson2.version>
 		<oshi-core.version>6.2.2</oshi-core.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<jjwt.version>0.9.1</jjwt.version>

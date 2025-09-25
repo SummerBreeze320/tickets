@@ -4,6 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.longlong.user.mapper.UserMobileMapper;
 import com.longlong.user.pojo.entity.UserMobileEntity;
 import com.longlong.user.service.UserMobileService;
+import io.swagger.v3.oas.annotations.servers.Server;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
+@Server
 public class UserMobileServiceImpl extends ServiceImpl<UserMobileMapper, UserMobileEntity> implements UserMobileService {
 }
