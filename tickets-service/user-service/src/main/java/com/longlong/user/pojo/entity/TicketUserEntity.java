@@ -14,20 +14,32 @@ import java.io.Serializable;
 @TableName("ticket_user")
 public class TicketUserEntity extends BaseEntity implements Serializable {
 
-	// 序列化ID
 	@Serial
 	private static final long serialVersionUID = 1L;
 
-	// 票务用户ID
+	/**
+	 * 主键id
+	 */
 	private Long id;
 
-	// 用户ID
+	/**
+	 * 用户id
+	 */
 	private Long userId;
 
-	// 票务类型
-	private String ticketType;
+	/**
+	 * 用户真实名字
+	 */
+	private String relName;
 
-	// 票务状态
-	private Integer status;
+	/**
+	 * 证件类型 1:身份证 2:港澳台居民居住证 3:港澳居民来往内地通行证 4:台湾居民来往内地通行证 5:护照 6:外国人永久居住证
+	 */
+	private Integer idType;
+
+	/**
+	 * 证件号码
+	 */
+	private String idNumber;
 
 }

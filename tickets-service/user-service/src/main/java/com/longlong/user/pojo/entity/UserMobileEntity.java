@@ -27,7 +27,4 @@ public class UserMobileEntity extends BaseEntity implements Serializable {
 	// 手机号
 	private String mobile;
 
-	// 手机号状态
-	private Integer status;
-
 }

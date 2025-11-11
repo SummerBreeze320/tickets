@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @author: 阿星不是程序员
  **/
 @Mapper
-public interface UserMobileMapper extends BaseMapper<UserMobileEntity> {
+public interface
+UserMobileMapper extends BaseMapper<UserMobileEntity> {
 
 }

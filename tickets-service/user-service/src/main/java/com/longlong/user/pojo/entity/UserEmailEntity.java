@@ -27,7 +27,4 @@ public class UserEmailEntity extends BaseEntity implements Serializable {
 	// 邮箱
 	private String email;
 
-	// 邮箱状态
-	private Integer status;
-
 }
