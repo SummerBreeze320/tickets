@@ -10,9 +10,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @program:
  * @description: 用户邮箱更新 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserUpdateEmailDto", description ="修改用户邮箱")

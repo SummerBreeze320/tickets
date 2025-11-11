@@ -2,6 +2,11 @@ package com.longlong.user.pojo.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+
+/**
+ * @description: 用户信息 vo
+ * @author: longlong
+ **/
 @Data
 @Schema(title="UserVo", description ="用户数据")
 public class UserVo {

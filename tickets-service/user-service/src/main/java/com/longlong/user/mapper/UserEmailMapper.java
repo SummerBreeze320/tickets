@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @description: 用户邮箱 mapper
- * @author: 阿星不是程序员
+ * @author: longlong
  **/
 @Mapper
 public interface UserEmailMapper extends BaseMapper<UserEmailEntity> {

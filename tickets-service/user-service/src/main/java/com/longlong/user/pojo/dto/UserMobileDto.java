@@ -5,9 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 /**
- * @program:
  * @description: 用户手机号 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserMobileDto", description ="用户手机号入参")

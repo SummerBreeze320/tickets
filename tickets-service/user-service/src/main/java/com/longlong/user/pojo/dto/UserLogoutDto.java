@@ -6,9 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 /**
- * @program:
  * @description: 用户退出登录 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserLogoutDto", description ="用户退出登录")

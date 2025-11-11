@@ -9,9 +9,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @program:
- * @description: 手机手机号 dto
- * @author:
+ * @description: 用户是否存在 dto
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserExistDto", description ="用户是否存在")

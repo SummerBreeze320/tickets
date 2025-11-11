@@ -10,9 +10,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @program:
  * @description: 用户密码更新 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserUpdatePasswordDto", description ="修改用户密码")

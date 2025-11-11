@@ -28,6 +28,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
@@ -37,9 +38,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * @description: 用户服务实现类
+ * @author: longlong
+ */
 @Slf4j
+@Service
 @RequiredArgsConstructor
-@Server
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> implements UserService {
 
     private final UserMapper userMapper;
@@ -50,13 +55,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
 
     private final TicketUserMapper ticketUserMapper;
 
-
+    /**
+     * 用户注册
+     * 实现逻辑：1.记录注册手机号日志 2.创建用户实体并保存 3.创建手机号关联记录
+     * @param userRegisterDto 用户注册信息
+     * @return 注册是否成功
+     */
+    @Override
     public Boolean register(UserRegisterDto userRegisterDto) {
         // todo 注册信息责任链
-        log.info("注册手机号:{}",userRegisterDto.getMobile());
+        log.info("注册手机号:{}", userRegisterDto.getMobile());
         //用户表添加
         UserEntity userEntity = new UserEntity();
-        BeanUtils.copyProperties(userRegisterDto,userEntity);
+        BeanUtils.copyProperties(userRegisterDto, userEntity);
         userMapper.insert(userEntity);
         //用户手机表添加
         UserMobileEntity userMobileEntity = new UserMobileEntity();
@@ -66,10 +77,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         return true;
     }
 
-
+    /**
+     * 检查用户是否存在
+     * 实现逻辑：根据手机号查询用户，如果存在则抛出异常
+     * @param userExistDto 查询条件，包含手机号
+     */
+    @Override
     public void exist(UserExistDto userExistDto){
         // todo 添加布隆过滤器
-        String mobile =userExistDto.getMobile();
+        String mobile = userExistDto.getMobile();
         LambdaQueryWrapper<UserMobileEntity> queryWrapper = Wrappers.lambdaQuery(UserMobileEntity.class)
                 .eq(UserMobileEntity::getMobile, mobile);
         UserMobileEntity userMobile = userMobileMapper.selectOne(queryWrapper);
@@ -79,7 +95,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         }
     }
 
-
+    /**
+     * 用户登录
+     * 实现逻辑：1.验证登录参数 2.根据手机号或邮箱查询用户ID 3.验证密码 4.生成JWT令牌
+     * @param userLoginDto 登录信息
+     * @return 登录结果，包含用户信息和令牌
+     */
+    @Override
     public UserLoginVo login(UserLoginDto userLoginDto) {
         UserLoginVo userLoginVo = new UserLoginVo();
         String code = userLoginDto.getCode();
@@ -110,15 +132,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         userLoginVo.setUserId(userId);
         // todo 在redis中存储.
         
-
-        Map<String,Object> map = new HashMap<>(4);
-        map.put("userId",userId);
-        String token= JWTUtils.generateAccessToken(String.valueOf(userId), JSON.toJSONString(map));
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("userId", userId);
+        String token = JWTUtils.generateAccessToken(String.valueOf(userId), JSON.toJSONString(map));
         userLoginVo.setToken(token);
         return userLoginVo;
     }
 
-
+    /**
+     * 用户登出
+     * 实现逻辑：1.解析JWT令牌 2.验证令牌有效性 3.（TODO）清理Redis中的登录状态
+     * @param userLogoutDto 登出信息，包含令牌
+     * @return 登出是否成功
+     */
+    @Override
     public Boolean logout(UserLogoutDto userLogoutDto) {
         String userStr = JWTUtils.parseJwtToken(userLogoutDto.getToken());
         if (StringUtils.isEmpty(userStr)) {
@@ -129,29 +156,44 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         return true;
     }
 
-
+    /**
+     * 更新用户信息
+     * 实现逻辑：1.验证用户是否存在 2.更新用户信息
+     * @param userUpdateDto 用户更新信息
+     */
+    @Override
     public void update(UserUpdateDto userUpdateDto){
         UserEntity user = userMapper.selectById(userUpdateDto.getId());
         if (Objects.isNull(user)) {
             throw new RuntimeException("无该用户");
         }
         UserEntity updateUser = new UserEntity();
-        BeanUtils.copyProperties(userUpdateDto,updateUser);
+        BeanUtils.copyProperties(userUpdateDto, updateUser);
         userMapper.updateById(updateUser);
     }
 
-
+    /**
+     * 修改密码
+     * 实现逻辑：1.验证用户是否存在 2.更新用户密码
+     * @param userUpdatePasswordDto 密码更新信息
+     */
+    @Override
     public void updatePassword(UserUpdatePasswordDto userUpdatePasswordDto){
         UserEntity user = userMapper.selectById(userUpdatePasswordDto.getId());
         if (Objects.isNull(user)) {
             throw new RuntimeException("无该用户");
         }
         UserEntity updateUser = new UserEntity();
-        BeanUtils.copyProperties(userUpdatePasswordDto,updateUser);
+        BeanUtils.copyProperties(userUpdatePasswordDto, updateUser);
         userMapper.updateById(updateUser);
     }
 
-
+    /**
+     * 用户身份验证
+     * 实现逻辑：1.验证用户是否存在 2.检查用户是否已认证 3.更新用户认证信息
+     * @param userAuthenticationDto 验证信息
+     */
+    @Override
     public void authentication(UserAuthenticationDto userAuthenticationDto){
         UserEntity user = userMapper.selectById(userAuthenticationDto.getId());
         if (Objects.isNull(user)) {

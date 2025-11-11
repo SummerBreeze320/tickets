@@ -4,9 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
- * @program:
  * @description: 用户登录 vo
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserLoginVo", description ="用户登录返回实体")

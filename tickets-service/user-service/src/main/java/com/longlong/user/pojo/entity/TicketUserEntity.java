@@ -7,8 +7,7 @@ import java.io.Serializable;
 
 /**
  * @description: 票务用户实体类
- * @author: Mr.Longlong
- * @create: 2020-08-07 14:05
+ * @author: longlong
  **/
 @Data
 @TableName("ticket_user")

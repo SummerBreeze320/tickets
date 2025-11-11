@@ -10,9 +10,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @program:
  * @description: 用户实名认证 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserAuthenticationDto", description ="用户实名认证")

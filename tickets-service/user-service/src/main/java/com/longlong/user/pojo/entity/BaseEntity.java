@@ -6,9 +6,8 @@ import lombok.Data;
 
 import java.util.Date;
 /**
- * @description:
- * @author: Mr.Longlong
- * @create: 2020-08-05 17:01
+ * @description: 基础实体类
+ * @author: longlong
  **/
 @Data
 public class BaseEntity {

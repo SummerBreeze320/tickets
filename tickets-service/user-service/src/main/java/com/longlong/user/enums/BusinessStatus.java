@@ -1,10 +1,10 @@
 package com.longlong.user.enums;
 
 /**
- * @program: 极度真实还原大麦网高并发实战项目。 添加 阿星不是程序员 微信，添加时备注 大麦 来获取项目的完整资料 
- * @description: 通用状态枚举
- * @author: 阿星不是程序员
- **/
+ * 业务状态枚举
+ * @description: 定义系统中通用的是/否状态标识
+ * @author: longlong
+ */
 
 public enum BusinessStatus {
     /**

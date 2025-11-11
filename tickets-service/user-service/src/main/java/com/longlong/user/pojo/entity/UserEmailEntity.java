@@ -7,8 +7,7 @@ import java.io.Serializable;
 
 /**
  * @description: 用户邮箱实体类
- * @author: Mr.Longlong
- * @create: 2020-08-07 14:05
+ * @author: longlong
  **/
 @Data
 @TableName("user_email")

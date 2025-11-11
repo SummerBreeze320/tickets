@@ -5,9 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 /**
- * @program:
  * @description: 用户和购票人查询 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserGetAndTicketUserListDto", description ="查询用户以及用户下购票人集合入参")

@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @description: 票务用户 mapper
- * @author: 阿星不是程序员
+ * @author: longlong
  **/
 @Mapper
 public interface TicketUserMapper extends BaseMapper<TicketUserEntity> {

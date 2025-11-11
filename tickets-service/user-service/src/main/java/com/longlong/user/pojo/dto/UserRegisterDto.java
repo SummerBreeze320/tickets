@@ -9,9 +9,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * @program:
  * @description: 用户注册 dto
- * @author:
+ * @author: longlong
  **/
 @Data
 @Schema(title="UserRegisterDto", description ="注册用户")
