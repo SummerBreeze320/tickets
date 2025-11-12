@@ -11,7 +11,7 @@
     <artifactId>tickets-service</artifactId>
     <packaging>pom</packaging>
 
-    <name>服务模块</name>
+    <name>tickets-service</name>
     <description>tickets-service</description>
 
     <modules>

@@ -116,6 +116,4 @@ public class UserController {
     public ApiResponse<UserGetAndTicketUserListVo> getUserAndTicketUserList(@Valid @RequestBody UserGetAndTicketUserListDto userGetAndTicketUserListDto) {
         return ApiResponse.ok(ticketUserService.getUserAndTicketUserList(userGetAndTicketUserListDto));
     }
-    
-    
 }
